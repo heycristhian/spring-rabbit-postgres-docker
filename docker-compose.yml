@@ -65,6 +65,7 @@ services:
     depends_on:
       - "rabbitmq"
       - "postgres"
+      - "main"
     links:
       - postgres
       - rabbitmq
@@ -86,6 +87,7 @@ services:
     depends_on:
       - "rabbitmq"
       - "postgres"
+      - "main"
     links:
       - postgres
       - rabbitmq
