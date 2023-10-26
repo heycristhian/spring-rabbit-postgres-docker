@@ -52,47 +52,47 @@ services:
       SPRING_RABBITMQ_PORT: 5672
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/messaging
 
-  # messaging1:
-  #   build:
-  #     dockerfile: ./messaging1/Dockerfile
-  #     context: .
-  #   image: heycristhian/messaging1-ms
-  #   container_name: messaging1
-  #   ports:
-  #     - "8081:8081"
-  #   networks: 
-  #     - messaging-rede
-  #   depends_on:
-  #     - "rabbitmq"
-  #     - "postgres"
-  #   links:
-  #     - postgres
-  #     - rabbitmq
-  #   environment:
-  #     SPRING_RABBITMQ_HOST: rabbitmq
-  #     SPRING_RABBITMQ_PORT: 5672
-  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/messaging
+  messaging1:
+    build:
+      dockerfile: ./messaging1/Dockerfile
+      context: .
+    image: heycristhian/messaging1-ms
+    container_name: messaging1
+    ports:
+      - "8081:8081"
+    networks: 
+      - messaging-rede
+    depends_on:
+      - "rabbitmq"
+      - "postgres"
+    links:
+      - postgres
+      - rabbitmq
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/messaging
 
-  # messaging2:
-  #   build:
-  #     dockerfile: ./messaging2/Dockerfile
-  #     context: .
-  #   image: heycristhian/messaging2-ms
-  #   container_name: messaging2
-  #   ports:
-  #     - "8082:8082"
-  #   networks: 
-  #     - messaging-rede
-  #   depends_on:
-  #     - "rabbitmq"
-  #     - "postgres"
-  #   links:
-  #     - postgres
-  #     - rabbitmq
-  #   environment:
-  #     SPRING_RABBITMQ_HOST: rabbitmq
-  #     SPRING_RABBITMQ_PORT: 5672
-  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/messaging
+  messaging2:
+    build:
+      dockerfile: ./messaging2/Dockerfile
+      context: .
+    image: heycristhian/messaging2-ms
+    container_name: messaging2
+    ports:
+      - "8082:8082"
+    networks: 
+      - messaging-rede
+    depends_on:
+      - "rabbitmq"
+      - "postgres"
+    links:
+      - postgres
+      - rabbitmq
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/messaging
 
 networks: 
   messaging-rede:
